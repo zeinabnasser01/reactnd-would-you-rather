@@ -1,0 +1,342 @@
+.App {
+  text-align: center;
+  margin: 0;
+}
+
+/* Start Navbar */
+.navbar-collapse {
+  justify-content: center;
+  align-items: flex-end;
+}
+.navbar {
+  padding-top: 1rem;
+  padding-bottom: 0;
+}
+.navbar-light {
+  border-bottom: 4px solid #2bc48a;
+}
+.navbar-expand-lg .navbar-nav .nav-link,
+.navbar-nav .nav-link {
+  font-size: 18px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  border-radius: 5px 5px 0 0;
+}
+.navbar-light .navbar-nav .nav-link.active {
+  background-color: #2bc48a;
+  color: #fff;
+}
+.navbar-user {
+  margin-left: 3rem;
+}
+.navbar-user .nav-link.nav-user {
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+}
+.navbar-user .nav-user .nav-avatar {
+  width: 30px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+.navbar-nav {
+  align-items: center;
+}
+.navbar .nav-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+.active-link,
+.btn-login {
+  border-radius: 8px 8px 0 0;
+}
+.active-link,
+.btn-login {
+  background-color: #2bc48a;
+  color: #fff;
+}
+.btn-login:hover {
+  color: #fff;
+}
+
+/* Start Login */
+.login {
+  margin: 30px auto;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+  max-width: 500px;
+}
+.login .card-header {
+  background-color: #f5f5f5;
+  border: none;
+  border-bottom: 1px solid #e9e9e9;
+  padding: 30px 0;
+}
+.login .card-header p {
+  color: #929292;
+  margin-bottom: 0;
+}
+.login .card-body {
+  text-align: center;
+  padding: 50px;
+}
+.login .card-body .logo {
+  width: 50%;
+}
+.login .card-body h1 {
+  margin-bottom: 30px;
+  color: #2bc48a;
+}
+.login .card-body .form-select {
+  margin-bottom: 15px;
+}
+.login .card-body .form-select:focus {
+  box-shadow: unset;
+  border-color: #2bc48a;
+}
+.login .card-body .btn {
+  width: 100%;
+  background-color: #2bc48a;
+  color: #fff;
+}
+.login .card-body .btn:focus {
+  box-shadow: unset;
+}
+
+.alert {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Start Home */
+.home {
+  max-width: 500px;
+  margin: 30px auto;
+  border: 1px solid #f2f2f2;
+}
+.home-nav {
+  display: flex;
+}
+.home-nav > button {
+  width: 50%;
+  padding: 10px 0;
+  text-align: center;
+  border: none;
+  background-color: #f2f2f2;
+}
+
+.home-nav > button.active-btn {
+  background-color: #e7e7e7;
+  color: #2bc48a;
+}
+
+/* Start Question */
+.question-card {
+  margin: 15px;
+  overflow: hidden;
+  border-color: #f2f2f2;
+}
+.question-card .card-header {
+  margin: 0;
+  padding: 10px;
+  border-color: #f2f2f2;
+  background-color: #f7f7f7;
+  text-align: left;
+}
+.question-card .card-body {
+  display: flex;
+  padding: 0;
+}
+.question-card .card-body .avatar {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #f2f2f2;
+}
+.question-card .card-body .avatar img {
+  border-radius: 50%;
+}
+.question-card .card-body .question-content {
+  width: 70%;
+  text-align: left;
+  padding: 15px;
+}
+.question-card .card-body .question-content .btn {
+  border: 1px solid #2bc48a;
+  color: #2bc48a;
+  width: 100%;
+}
+
+.question-card .card-body .question-content .btn-primary {
+  color: #fff;
+  border: 1px solid #0d6efd;
+}
+
+/* Start Poll */
+.poll-card {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: hidden;
+}
+.poll-card .card-header {
+  margin: 0;
+  padding: 10px;
+  border-color: #f2f2f2;
+  background-color: #f7f7f7;
+  text-align: left;
+}
+.poll-card .card-body {
+  display: flex;
+  padding: 0;
+}
+.poll-card .card-body .avatar {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #f2f2f2;
+}
+.poll-card .card-body .avatar img {
+  border-radius: 50%;
+  width: 75%;
+}
+.poll-card .card-body .poll-content {
+  width: 70%;
+  text-align: left;
+  padding: 15px;
+}
+.poll-card .card-body .poll-content h5 {
+  margin-bottom: 15px;
+}
+.poll-card .card-body .poll-content .btn {
+  border: 1px solid #2bc48a;
+  color: #2bc48a;
+  width: 100%;
+  margin-top: 15px;
+}
+.poll-card .card-body .poll-content .poll-option {
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 15px;
+  position: relative;
+}
+.poll-card .card-body .poll-content .poll-option,
+.poll-card .card-body .poll-content .poll-option-active {
+  margin-bottom: 15px;
+}
+.poll-card .card-body .poll-content .poll-option-active {
+  border: 2px solid #2bc48a;
+  background-color: rgb(0, 204, 170, 0.1);
+  border-radius: 5px;
+  padding: 15px;
+  position: relative;
+}
+.poll-card .card-body .poll-content .vote-badge {
+  position: absolute;
+  border-radius: 50%;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  right: -10px;
+  top: -20px;
+  font-size: 10px;
+  color: white;
+  background-color: #ffc107;
+  padding: 4px 0;
+}
+.progress {
+  margin-top: 15px;
+}
+.progress-bar {
+  background-color: #2bc48a;
+}
+.vote {
+  font-size: 10px;
+}
+
+/* Start New Question */
+.new-question {
+  max-width: 500px;
+  margin: 30px auto;
+  border: 1px solid #f2f2f2;
+  padding: 15px;
+}
+.new-question h1 {
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+.new-question p {
+  color: #797979;
+}
+.new-question .text-left {
+  text-align: left;
+}
+.new-question .form-control {
+  margin: 15px 0;
+}
+.new-question span {
+  text-align: center;
+  display: block;
+}
+.new-question .btn {
+  background-color: #2bc48a;
+  width: 100%;
+  color: #fff;
+  margin-top: 15px;
+}
+
+/* Start User*/
+.user-card {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: hidden;
+  flex-direction: row;
+}
+.user-card .avatar {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-card .avatar img {
+  width: 65%;
+  border-radius: 50%;
+}
+.user-card .user-details {
+  width: 50%;
+  padding: 15px;
+  text-align: left;
+}
+.user-card .user-details li {
+  color: #797979;
+}
+.user-card .score {
+  width: 25%;
+  text-align: center;
+  padding: 15px;
+}
+.user-card .score .score-content {
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.user-card .score .score-content h6 {
+  background-color: #e7e7e7;
+  padding: 5px 0;
+}
+.user-card .score .score-content .score-number {
+  padding: 15px;
+}
+.user-card .score .score-content .score-number span {
+  background-color: #2bc48a;
+  color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
