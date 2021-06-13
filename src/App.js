@@ -22,7 +22,7 @@ class App extends Component {
         <div className='App'>
           <Navbar />
           {authedUser ? (
-            <Route path='/login' component={Login} />
+            <Route path='/' component={Login} />
           ) : (
             <React.Fragment>
               <Route exact path='/' component={Home} />

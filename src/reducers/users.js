@@ -13,7 +13,7 @@ export default function users(state = {}, action) {
         ...state,
         [action.authedUser]: {
           ...state[action.authedUser],
-          questions: state[action.authedUser].questions.concat([action.id]),
+          questions: state[action.authedUser].questions.concat(action.id),
         },
       };
     case SAVE_USER_ANSWER:

@@ -30,10 +30,10 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
   };
 }
 
-export function handleAddAnswer(authedUser, qid, answer) {
-  return (dispatch) => {
-    // const { authedUser } = getState();
-    _saveQuestionAnswer({ authedUser, qid, answer }).then(() => {
+export function handleAddAnswer({ qid, answer }) {
+  return (dispatch, getState) => {
+    const { authedUser } = getState();
+    return _saveQuestionAnswer({ authedUser, qid, answer }).then(() => {
       dispatch(saveQuestionAnswer(authedUser, qid, answer));
       dispatch(saveUserAnswer(authedUser, qid, answer));
     });

@@ -12,8 +12,8 @@ class Poll extends Component {
 
   handleChange = (e) => {
     e.preventDefault();
-    const answer = e.target.value;
-    this.setState({ userAnswer: answer });
+    const value = e.target.value;
+    this.setState({ userAnswer: value });
   };
 
   handleSubmit = (e) => {
@@ -22,6 +22,7 @@ class Poll extends Component {
     if (!this.state.userAnswer) {
       alert('Please enter your answer !');
     } else {
+      console.log(authedUser, question.id, userAnswer);
       this.props.dispatch(
         handleAddAnswer({ authedUser, qid: question.id, answer: userAnswer })
       );
@@ -32,6 +33,7 @@ class Poll extends Component {
     const { userAnswer, authedUser, answer } = this.state;
     const { author, optionOne, optionTwo } = this.state.question;
     const votes = optionOne.votes.length + optionTwo.votes.length;
+
     return answer ? (
       <React.Fragment>
         <div className='card poll-card'>
@@ -144,8 +146,8 @@ class Poll extends Component {
                     type='radio'
                     name='radio'
                     id='option-one'
-                    value='optionOne'
-                    checked={userAnswer === 'optionOne'}
+                    value='optionOneText'
+                    checked={userAnswer === 'optionOneText'}
                     onChange={this.handleChange}
                   />
                   <label className='form-check-label' htmlFor='option-one'>
@@ -158,8 +160,8 @@ class Poll extends Component {
                     type='radio'
                     name='radio'
                     id='option-two'
-                    value='optionTwo'
-                    checked={userAnswer === 'optionTwo'}
+                    value='optionTwoText'
+                    checked={userAnswer === 'optionTwoText'}
                     onChange={this.handleChange}
                   />
                   <label className='form-check-label' htmlFor='option-two'>
