@@ -13,7 +13,7 @@ const User = (props) => {
 
 function mapStateToProps({ authedUser, users }) {
   return {
-    user: users[authedUser],
+    user: authedUser ? users[authedUser] : null,
   };
 }
 

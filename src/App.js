@@ -17,28 +17,16 @@ class App extends Component {
     this.props.handleInitialData();
   }
   render() {
-    // const { authedUser } = this.props;
     return (
       <BrowserRouter>
         <div className='App'>
           <Navbar />
-          {/* {authedUser ? (
-            <Route path='/' component={Login} />
-          ) : (
-            <React.Fragment>
-              <Route exact path='/' component={Home} />
-              <Route path='/add' component={NewQuestion} />
-              <Route path='/leader-board' component={LeaderBoard} />
-              <Route path='/questions/:id' component={Poll} />
-              <Route component={Page404} />
-            </React.Fragment>
-          )} */}
 
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/login' component={Login} />
             <Route path='/add' component={NewQuestion} />
-            <Route path='/leader-board' component={LeaderBoard} />
+            <Route path='/leaderboard' component={LeaderBoard} />
             <Route path='/questions/:id' component={Poll} />
             <Route component={Page404} />
           </Switch>
@@ -46,12 +34,6 @@ class App extends Component {
       </BrowserRouter>
     );
   }
-}
-
-function mapStateToProps({ authedUser }) {
-  return {
-    authedUser: authedUser === null,
-  };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -62,4 +44,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

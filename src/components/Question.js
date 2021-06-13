@@ -1,11 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Page404 from './404';
 
 const Question = (props) => {
   const { question, answered } = props;
   console.log(question.author);
-  return (
+
+  return !question ? (
+    <Page404 />
+  ) : (
     <div className='card question-card'>
       <div className='card-header'>{question.author.name}</div>
       <div className='card-body'>
