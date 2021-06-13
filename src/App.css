@@ -340,3 +340,7 @@
   align-items: center;
   margin: auto;
 }
+
+.pageNotFound {
+  margin: 150px 0;
+}

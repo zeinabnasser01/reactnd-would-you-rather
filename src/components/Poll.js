@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { handleAddAnswer } from '../actions/shared';
+import Page404 from './404';
 
 const Poll = (props) => {
   const [userAnswer, setuserAnswer] = useState('');
-  const { answer, question, authedUser, handleAddAnswer } = props;
-  const { optionOne, optionTwo } = question;
-  const votes = optionOne.votes.length + optionTwo.votes.length;
-  const author = question ? question.authorDetails : null;
 
   if (!props.authedUser)
     return (
@@ -19,6 +16,13 @@ const Poll = (props) => {
         }}
       />
     );
+
+  if (!props.exist) return <Page404 />;
+
+  const { answer, question, authedUser, handleAddAnswer } = props;
+  const { optionOne, optionTwo } = question;
+  const votes = optionOne.votes.length + optionTwo.votes.length;
+  const author = question ? question.authorDetails : null;
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -182,7 +186,6 @@ const Poll = (props) => {
 
 function mapStateToProps({ users, questions, authedUser }, { match }) {
   const { id } = match.params;
-  const answers = users[authedUser].answers;
   const exist = Object.keys(questions).includes(id) && authedUser;
   const question = exist
     ? {
@@ -191,12 +194,15 @@ function mapStateToProps({ users, questions, authedUser }, { match }) {
       }
     : null;
 
-  const answer = exist ? Object.keys(answers).includes(id) : null;
+  const answer = exist
+    ? Object.keys(users[authedUser].answers).includes(id)
+    : null;
 
   return {
     authedUser,
     question,
     answer,
+    exist,
   };
 }
 

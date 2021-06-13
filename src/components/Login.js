@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { setAuthedUser } from '../actions/authedUser';
 import logo from '../logo.svg';
 
@@ -25,9 +26,15 @@ class Login extends Component {
   };
 
   render() {
-    const { users } = this.props;
+    const { users, authedUser } = this.props;
     console.log(users);
-    return (
+    const redirect = this.props.location.state
+      ? this.props.location.state.referrer
+      : '/';
+    console.log(redirect);
+    return authedUser ? (
+      <Redirect to={redirect} />
+    ) : (
       <React.Fragment>
         <div className='card login'>
           <div className='card-header'>
@@ -63,8 +70,9 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ authedUser, users }) {
   return {
+    authedUser,
     users: Object.values(users),
   };
 }

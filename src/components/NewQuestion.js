@@ -61,7 +61,12 @@ class NewQuestion extends Component {
         </div>
       </React.Fragment>
     ) : (
-      <Redirect to='/login' />
+      <Redirect
+        to={{
+          pathname: '/login',
+          state: { referrer: '/add' },
+        }}
+      />
     );
   }
 }

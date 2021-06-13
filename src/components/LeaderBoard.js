@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 const LeaderBoard = (props) => {
-  return (
+  return props.authedUser ? (
     <React.Fragment>
       <ul className='list-unstyled'>
         {props.usersBoard.map((user) => (
@@ -31,10 +32,17 @@ const LeaderBoard = (props) => {
         ))}
       </ul>
     </React.Fragment>
+  ) : (
+    <Redirect
+      to={{
+        pathname: '/login',
+        state: { referrer: '/leaderboard' },
+      }}
+    />
   );
 };
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, authedUser }) {
   const usersBoard = Object.values(users)
     .map((user) => ({
       id: user.id,
@@ -44,9 +52,12 @@ function mapStateToProps({ users }) {
       createdQuestions: user.questions.length,
       userScore: Object.values(user.answers).length + user.questions.length,
     }))
-    .sort((a, b) => a.userScore - b.userScore);
+    .sort((a, b) => a.userScore - b.userScore)
+    .reverse()
+    .slice(0, 3);
   return {
     usersBoard,
+    authedUser,
   };
 }
 
